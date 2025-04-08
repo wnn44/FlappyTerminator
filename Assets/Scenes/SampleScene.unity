@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 132232549}
+  _scoreCounter: {fileID: 588466870}
 --- !u!114 &132232548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 177036222}
+  _scoreCounter: {fileID: 588466870}
 --- !u!114 &177036221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,7 +1281,6 @@ GameObject:
   - component: {fileID: 951965676}
   - component: {fileID: 951965678}
   - component: {fileID: 951965679}
-  - component: {fileID: 951965680}
   - component: {fileID: 951965681}
   m_Layer: 0
   m_Name: FlappyTerminator
@@ -1479,18 +1480,6 @@ MonoBehaviour:
   _projectileSpeed: 20
   _fireRate: 2
   _poolSize: 5
---- !u!114 &951965680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951965670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f04145b82fd2e46b0a0e4b750aeb93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &951965681
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1827,7 +1816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac017fd19578a4479b1c28b630f131f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefabs:
+  _enemy:
   - {fileID: 132232549}
   - {fileID: 177036222}
   _spawnInterval: 5
