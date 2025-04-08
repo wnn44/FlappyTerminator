@@ -1,14 +1,12 @@
 using System;
 using UnityEngine;
 
-//[RequireComponent(typeof(BirdMover))]
 [RequireComponent(typeof(BirdCollisionHandler))]
 public class Bird : MonoBehaviour
 {
     [SerializeField] private float _loopXPosition;
     [SerializeField] private float _teleportOffset;
-                                                          
-    // private BirdMover _birdMover;
+
     private BirdCollisionHandler _handler;
 
     public event Action GameOver;
@@ -16,7 +14,6 @@ public class Bird : MonoBehaviour
     private void Awake()
     {
         _handler = GetComponent<BirdCollisionHandler>();
-    //    _birdMover = GetComponent<BirdMover>();
     }
 
     private void OnEnable()
@@ -41,7 +38,7 @@ public class Bird : MonoBehaviour
 
     private void ProcessCollision()
     {
-            Time.timeScale = 0;
-            GameOver?.Invoke();
+        Time.timeScale = 0;
+        GameOver?.Invoke();
     }
 }
