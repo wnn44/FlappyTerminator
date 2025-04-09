@@ -38,7 +38,6 @@ public class Bird : MonoBehaviour
 
     private void ProcessCollision()
     {
-        Time.timeScale = 0;
         GameOver?.Invoke();
     }
 }

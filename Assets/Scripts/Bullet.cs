@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour
     private Shooter _pool;
     private Coroutine _lifeCoroutine;
 
-    public event Action CollisionDetected;
-
     public void SetPool(Shooter pool)
     {
         _pool = pool;
