@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private Bird _bird;
+    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private BirdCollisionHandler _birdCollisionHandler;
 
     private void OnEnable()
     {
-        _bird.GameOver += ActivateGameOverPanel;
+        _birdCollisionHandler.GameOver += ActivateGameOverPanel;
     }
 
     private void OnDisable()
     {
-        _bird.GameOver -= ActivateGameOverPanel;
+        _birdCollisionHandler.GameOver -= ActivateGameOverPanel;
     }
 
     private void ActivateGameOverPanel()
     {
-        gameOverPanel.SetActive(true);
+        _gameOverPanel.SetActive(true);
+        Cursor.visible = true;
         Time.timeScale = 0;
     }
 }
