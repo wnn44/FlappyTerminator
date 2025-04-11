@@ -26,7 +26,7 @@ public class Shooter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= _nextFireTime)
+        if (Input.GetMouseButton(0) && Time.time >= _nextFireTime && Time.timeScale > 0)
         {
             Shoot();
             _nextFireTime = Time.time + 1f / _fireRate;
@@ -67,6 +67,9 @@ public class Shooter : MonoBehaviour
 
     private void VoicingShoot()
     {
-        _audioSource.Play();
+        if (Time.timeScale > 0)
+        {
+            _audioSource.Play();
+        }
     }
 }

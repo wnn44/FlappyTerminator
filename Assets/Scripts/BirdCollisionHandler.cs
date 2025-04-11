@@ -13,13 +13,13 @@ public class BirdCollisionHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent(out Ground ground))
-        {
-            VoicingShoot();
+        {            
             GameOver?.Invoke();
         }
 
         if (other.TryGetComponent(out Bullet bullet))
         {
+            VoicingShoot();
             IsAlive = false;
         }
     }
