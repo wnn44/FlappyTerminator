@@ -10,27 +10,16 @@ public class BirdMover : MonoBehaviour
     [SerializeField] private float _minRotationZ;
     [SerializeField] private BirdCollisionHandler _birdCollisionHandler;
 
-    private Vector3 _startPosition;
-    private Quaternion _startRotation;
     private Rigidbody2D _rigidbody2D;
 
     private void Start()
     {
-        _startPosition = transform.position;
-        _startRotation = transform.rotation;
         _rigidbody2D = GetComponent<Rigidbody2D>();
-
-        Reset();
     }
 
     private void Update()
     {
         float targetAngle;
-
-        if (Input.GetKeyDown(KeyCode.Space) && _birdCollisionHandler.IsAlive)
-        {
-            _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
-        }
 
         if (_rigidbody2D.velocity.y < 0)
         {
@@ -46,10 +35,11 @@ public class BirdMover : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
     }
 
-    public void Reset()
+    public void Jump()
     {
-        transform.position = _startPosition;
-        transform.rotation = _startRotation;
-        _rigidbody2D.velocity = Vector2.zero;
+        if (_birdCollisionHandler.IsAlive)
+        {
+            _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
+        }
     }
 }

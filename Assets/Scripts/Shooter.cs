@@ -7,10 +7,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] private Transform _firePoint;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private float _projectileSpeed = 10f;
-    [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private int _poolSize = 20;
 
-    private float _nextFireTime = 0f;
     private Queue<Bullet> _bulletPool = new Queue<Bullet>();
 
     private void Start()
@@ -21,15 +19,6 @@ public class Shooter : MonoBehaviour
             bullet.gameObject.SetActive(false);
             bullet.SetPool(this);
             _bulletPool.Enqueue(bullet);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButton(0) && Time.time >= _nextFireTime && Time.timeScale > 0)
-        {
-            Shoot();
-            _nextFireTime = Time.time + 1f / _fireRate;
         }
     }
 

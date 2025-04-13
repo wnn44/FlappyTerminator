@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameOverPanel _gameOverPanel;
     [SerializeField] private BirdCollisionHandler _birdCollisionHandler;
 
     private void OnEnable()
